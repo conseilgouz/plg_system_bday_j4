@@ -1,0 +1,15 @@
+/***********************************************************************************************
+**
+**									CSS style for admin
+**									
+**
+************************************************************************************************/
+
+.subform-wrapper .control-group:nth-of-type(odd){
+	float:left;width:45%;
+}
+.subform-wrapper .control-group:nth-of-type(even){
+	float:right;width:45%;
+}
+
+

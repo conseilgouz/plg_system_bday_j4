@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="system" method="upgrade">
+	<name>plg_system_bday</name>
+	<author>ConseilGouz</author>
+	<creationDate>December 2021</creationDate>
+	<copyright>(C)2021 ConseilGouz. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<version>2.1.0</version>
+	<description>PLG_SYSTEM_BDAY_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="bday">bday.php</filename>
+        <filename>bday_pos.xml</filename>
+		<filename>bday_detail.xml</filename>
+        <filename>bday.xml</filename>
+        <folder>src</folder>
+	</files>
+	<namespace path="src">ConseilGouz\Plugin\System\BDay</namespace>
+	<media destination="plg_system_bday" folder="media">
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>css</folder>
+		<filename>index.html</filename>
+	</media>
+	<scriptfile>script.php</scriptfile>
+	<changelogurl>https://www.conseilgouz.com/updates/plg_system_bday_changelog.xml</changelogurl>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/plg_system_bday.ini</language>
+		<language tag="en-GB">en-GB/plg_system_bday.sys.ini</language>
+		<language tag="fr-FR">fr-FR/plg_system_bday.ini</language>
+		<language tag="fr-FR">fr-FR/plg_system_bday.sys.ini</language>
+	</languages>
+	<config>
+       <fields name="params">
+            <fieldset name="basic" addruleprefix="ConseilGouz\Plugin\System\BDay\Rule">
+				<field name="user_info" validate="kunena" 
+					type="radio" default="joomla" label="USER_INFO_LABEL" description="USER_INFO_DES" class="btn-group"
+					close="false">					
+                    <option value="joomla">Joomla</option>
+					<option value="kunena">Kunena</option>	
+				</field>
+				<field name="all_users" type="radio" default="ALL" label="ALL_USERS_LABEL" description="ALL_USERS_DES" class="btn-group">
+                    <option value="ALL">POP_ALL</option>
+					<option value="ONE">POP_ONE</option>
+					<option value="GROUP">POP_GROUP</option>
+				</field>
+				<field  showon="all_users:GROUP"
+					name="usergroup" type="usergrouplist"
+					label="POPUP_GROUP_LABEL"
+					description="POPUP_USER_GROUP_DESC" 
+					multiple="true" />	
+				<field  showon="all_users:GROUP"
+					name="only_my_group"
+					type="radio" default="0" label="ONLY_MY_GROUP_LABEL" description="ONLY_MY_GROUP_DES" class="btn-group">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="sp-effect" type="list" default="swoopIn" label="SP_EFFECT_LABEL" description="SP_EFFECT_DES" >
+				<option value="fadeIn">fadeIn</option>
+				<option value="flipXIn">flipXIn</option>
+				<option value="flipYIn">flipYIn</option>
+				<option value="swoopIn">swoopIn</option>
+				<option value="whirlIn">whirlIn</option>
+				<option value="slideUpIn">slideUpIn</option>
+				<option value="slideUpBigIn">slideUpBigIn</option>
+				<option value="slideDownBigIn">slideDownBigIn</option>
+				<option value="slideLeftBigIn">slideLeftBigIn</option>
+				<option value="slideRightBigIn">slideRightBigIn</option>
+				<option value="perspectiveUpIn">perspectiveUpIn</option>
+				<option value="perspectiveDownIn">perspectiveDownIn</option>
+				<option value="perspectiveLeftIn">perspectiveLeftIn</option>
+				<option value="perspectiveRightIn">perspectiveRightIn</option>
+				</field>
+				<field name="position" label="essai" type="subform" multiple ="false"
+				formsource="/plugins/system/bday/bday_pos.xml"  />
+				<field name="show_btn_close_popup" type="radio" default="1" label="SHOW_BTN_POPUP_LABEL" description="SHOW_BTN_POPUP_DES" class="btn-group">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				<field showon="show_btn_close_popup:1" name="title_button_popup" type="radio" default="1" label="TITLE_BUTTON_LABEL" description="TITLE_BUTTON_DES" class="btn-group">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				<field showon="show_btn_close_popup:1[AND]title_button_popup:1" name="title_button_txt" type="text" default="Anniv..." label="TITLE_BUTTON_TXT_LABEL" description="TITLE_BUTTON_TXT_DES" />
+				<field name="detail" label="" type="subform" multiple ="false"
+				formsource="/plugins/system/bday/bday_detail.xml"  />
+			
+				<field name="css_popup" type="textarea" label="CSS_POPUP_LABEL" description="CSS_POPUP_DES" cols="40" rows="4" filter="raw" 
+					default=".plg_bday .relative{ height:auto;width:100%;overflow:hidden;        }          .plg_bday_wrap .btn {background: #00a3e2; margin-left: 36px; padding: 8px 24px; border: none; color: #fff; text-shadow: -1px 0 1px #333;}             .plg_bday_wrap h4 {text-align: center; margin-top: 10px;}         h4 {color:black}         #btn_plg_bday {z-index:999999}#plg_bday {z-index:999999}     
+				"/>
+				<field type="note" name="note1" label="PLG_NOTE1" heading="p" />			 
+				<field name="content_user" type="editor" label="CONTENT_USER_LABEL" description="CONTENT_USER_DES" cols="40" rows="4" filter="raw" 
+					default="&lt;a href='mailto:{email}'&gt;{name}&lt;/a&gt; ..."/>	
+				<field type="note" name="note2" label="PLG_NOTE2" heading="p" />			 
+				<field name="content_popup" type="editor" label="CONTENT_POPUP_LABEL" description="CONTENT_POPUP_DES" cols="40" rows="4" filter="raw" 
+					default="Joyeux Anniversaire {users}..."/>	
+				<field  name="popup_test" type="radio" default="0" label="TEST_MODE" description="TEST_MODE_DES" class="btn-group">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				<field showon="popup_test:1" name="test_menu" type="menuItem" default="" label="TEST_MENU" description="TEST_MENU_DES" >
+				</field>
+			</fieldset>	
+            <fieldset name="scroll">
+				<field
+					name="direction"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="DIRECTION"
+					description="DIRECTIONDESC">
+					<option
+						value="1">JBASENHAUT</option>
+					<option
+						value="0">JDROITEGAUCHE</option>
+				</field>
+				<field 
+					name="sf_width" 
+					type="text" 
+					size="50" 
+					default="100%" 
+					label="SF_WIDTH" 
+					description="SF_WIDTHDESC" />
+					
+				<field 
+					name="sf_height" 
+					type="text" 
+					size="50" 
+					default="5em" 
+					label="SF_HEIGHT" 
+					description="SF_HEIGHTDESC" />
+				<field 
+					name="sf_speed" 
+					type="integer" 
+					default="1"
+					label="SF_SPEED" 
+					description="SF_SPEEDDESC" 
+					first="10" last="100" step="5"
+					/>	
+			</fieldset>
+        </fields>
+		</config>
+    <updateservers>
+        <server type="plugin" folder="system" priority="1" name="bday">https://www.conseilgouz.com/updates/plg_system_bday_update.xml</server>
+    </updateservers>
+</extension>

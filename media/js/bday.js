@@ -3,7 +3,7 @@
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
- * @version 2.2.1 
+ * @version 2.2.2 
  */
 var lefttime;
 var animate_effects = []; // animate 2 to animate 3
@@ -133,7 +133,7 @@ function rightmarquee(){
 	if (parseInt(sp_wrap.style.left) > -parseInt(sp_move.clientWidth)) { 
 		sp_wrap.style.left = (parseInt(sp_wrap.style.left)-(parseInt(options_bday.scroll_speed)/10))+"px"
 	} else {
-		sp_wrap.style.left = sp_move.clientWidth+"px";;
+		sp_wrap.style.left = sp_wrap.clientWidth+"px";;
 	} 
 }
 

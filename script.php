@@ -1,28 +1,29 @@
 <?php
 /**
-* BDay Plugin  - Joomla 4.0.0 Module 
-* Version			: 2.1.0
+* BDay Plugin  - Joomla 4.x/5.x plgin
+* Version			: 2.2.0
 * Package			: BirthBay Plugin
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
-* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
+* license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 */
 // No direct access to this file
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class plgsystembdayInstallerScript
 {
 	private $min_joomla_version      = '4.0.0';
-	private $min_php_version         = '7.2';
+	private $min_php_version         = '7.4';
 	private $name                    = 'Plugin BDay';
 	private $exttype                 = 'plugin';
 	private $extname                 = 'bday';
 	private $previous_version        = '';
 	private $dir           = null;
+	private $lang;
 	private $installerName = 'system_bdayinstaller';
 	public function __construct()
 	{
@@ -159,7 +160,7 @@ class plgsystembdayInstallerScript
 	}
 	private function uninstallInstaller()
 	{
-		if ( ! JFolder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([

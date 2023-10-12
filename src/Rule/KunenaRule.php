@@ -1,13 +1,13 @@
 <?php
 /**
 * Plugin Bday
-* Version			: 2.1.0
-* Package			: Joomla 4.0.x
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
-* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* Version			: 2.2.0
+* Package			: Joomla 4.x/5.x
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
+* license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 * From              : GMapFP Component Yahoo Météo for Joomla! 3.x
 */
-namespace ConseilGouz\Plugin\System\BDay\Rule;
+namespace ConseilGouz\Plugin\System\Bday\Rule;
 defined( '_JEXEC' ) or die( 'Restricted access' );
 use Joomla\CMS\Form\Form;
 use Joomla\CMS\Form\FormRule;

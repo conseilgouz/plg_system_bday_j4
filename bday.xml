@@ -2,21 +2,22 @@
 <extension version="4.0" type="plugin" group="system" method="upgrade">
 	<name>plg_system_bday</name>
 	<author>ConseilGouz</author>
-	<creationDate>December 2021</creationDate>
-	<copyright>(C)2021 ConseilGouz. All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<creationDate>2023-10-12</creationDate>
+	<copyright>(C)2023 ConseilGouz. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.1.0</version>
+	<version>2.2.0</version>
 	<description>PLG_SYSTEM_BDAY_XML_DESCRIPTION</description>
 	<files>
-		<filename plugin="bday">bday.php</filename>
+		<folder plugin="bday">services</folder>
+		<folder>services</folder>
         <filename>bday_pos.xml</filename>
 		<filename>bday_detail.xml</filename>
         <filename>bday.xml</filename>
         <folder>src</folder>
 	</files>
-	<namespace path="src">ConseilGouz\Plugin\System\BDay</namespace>
+	<namespace path="src">ConseilGouz\Plugin\System\Bday</namespace>
 	<media destination="plg_system_bday" folder="media">
 		<folder>js</folder>
 		<folder>images</folder>
@@ -33,7 +34,9 @@
 	</languages>
 	<config>
        <fields name="params">
-            <fieldset name="basic" addruleprefix="ConseilGouz\Plugin\System\BDay\Rule">
+            <fieldset name="basic" addruleprefix="ConseilGouz\Plugin\System\Bday\Rule" 
+								   addfieldprefix="ConseilGouz\Plugin\System\Bday\Field">
+				<field name="version" type="version"  margintop="-2em"  extension="bday" />
 				<field name="user_info" validate="kunena" 
 					type="radio" default="joomla" label="USER_INFO_LABEL" description="USER_INFO_DES" class="btn-group"
 					close="false">					

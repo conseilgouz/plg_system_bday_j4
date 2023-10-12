@@ -1,7 +1,7 @@
 <?php
 /**
 * BDay Plugin  - Joomla 4.x/5.x plgin
-* Version			: 2.2.0
+* Version			: 2.2.3
 * Package			: BirthBay Plugin
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -122,7 +122,31 @@ class plgsystembdayInstallerScript
         catch (RuntimeException $e) {
             JLog::add('unable to enable plugin bday', JLog::ERROR, 'jerror');
         }
-
+		// remove obsolete update sites
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%432473037d.url-de-test.ws/%"');
+		$db->setQuery($query);
+		$db->execute();
+		// BDay plugin is now on Github
+		$query = $db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/%_system_bday%"');
+		$db->setQuery($query);
+		$db->execute();
+		// remove obsolete package bday 
+		$query = $db->getQuery(true)
+			->delete('#__extensions')
+			->where($db->quoteName('type') . ' like "package" AND element like "%BDay%"');
+		$db->setQuery($query);
+		$db->execute();
+		$query = $db->getQuery(true)
+			->delete('#__extensions')
+			->where($db->quoteName('type') . ' like "package" AND name like "%BDay%"');
+		$db->setQuery($query);
+		$db->execute();
+		
 	}
 
 	// Check if Joomla version passes minimum requirement

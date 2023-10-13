@@ -3,7 +3,7 @@
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
- * @version 2.2.2 
+ * @version 2.2.4 
  */
 var lefttime;
 var animate_effects = []; // animate 2 to animate 3
@@ -48,11 +48,13 @@ function go_popup() {
 	sp_popup.style.opacity = 0; // hide popup
 	sp_popup.style.display = 'none'; // hide popup
 	sp_popup.style.setProperty('--animate-duration', '800ms');
-	sp_wrap.style.width = options_bday.scroll_width;
-	if (options_bday.scroll_height.substr(-2) == "em") {
-		sp_wrap.style.height = (parseInt(options_bday.scroll_height) * 12)+"px";
-	} else {
-		sp_wrap.style.height = options_bday.scroll_height;
+	if (options_bday.multi) { // scroll multi only
+		sp_wrap.style.width = options_bday.scroll_width;
+		if (options_bday.scroll_height.substr(-2) == "em") {
+			sp_wrap.style.height = (parseInt(options_bday.scroll_height) * 12)+"px";
+		} else {
+			sp_wrap.style.height = options_bday.scroll_height;
+		}
 	}
 	if (sp_button) {
 		sp_button.style.backgroundColor = options_bday.background;
@@ -62,10 +64,7 @@ function go_popup() {
 		sp_button.style.setProperty('--animate-duration', '800ms');
 	}
 	$cookieName = 'plg_bday';
-	if (!options_bday.test) { // mode normal
-		setCookie('plg_bday',1,1);
-	}
-	if ((getCookie($cookieName) != "")  ) { // affichage bouton
+	if ((getCookie($cookieName) != "") && (options_bday.test == "0") ) { // affichage bouton
 		show_button();
 	} else {  // on cache le bouton
 		hide_button();
@@ -103,13 +102,7 @@ function go_popup() {
 		});
 	}
 	if  (getCookie("plg_bday") == "") {// pas de cookie: on affiche la popup 
-		if (options_bday.delay > 0) {
-			setTimeout(function(){
-				show_popup();
-			}, options_bday.delay); 
-		} else {
-			show_popup();
-		}
+		show_popup();
 	} 
 
 	// from https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
@@ -187,7 +180,7 @@ function getCookie(name) {
 }	
 function pad(s) { return (s < 10) ? '0' + s : s; }
 function setCookie(cname, cvalue, exdays) {
-    if (options_bday.test) return; // mode test : no cookie
+    if (options_bday.test == "1") return; // mode test : no cookie
 	var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();

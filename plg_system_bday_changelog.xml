@@ -3,6 +3,20 @@
 		<element>plg_system_bday</element>
 		<type>plugin</type>
 		<group>system</group>
+		<version>2.2.4</version>
+        <note>
+            <item>Update : 13/10/2023</item>
+        </note>
+		<fix>
+			<item>Changelog file on github</item>
+			<item>Demo mode : hide button</item>
+			<item>Single user not working</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>plg_system_bday</element>
+		<type>plugin</type>
+		<group>system</group>
 		<version>2.2.3</version>
         <note>
             <item>Update : 12/10/2023</item>

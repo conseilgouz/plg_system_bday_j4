@@ -49,7 +49,8 @@ class Bday extends CMSPlugin
 		           if ($un_menu->id == $testMenu) {
 		               $users = array();
 		               $users[] = $currUser;
-		               $this->popup($users); // happy birthday.....
+		               $res = $this->popup($users); // happy birthday.....
+					   $buffer .= $res;
 		           }
 		        }
 		    }
@@ -78,7 +79,8 @@ class Bday extends CMSPlugin
 		    }
 		}
 		if (count($users) > 0) { // il y a des anniv.....
-		    $this->popup($users); // happy birthday.....
+		    $res = $this->popup($users); // happy birthday.....
+			$buffer .= $res;
 		}
         return;
 	}

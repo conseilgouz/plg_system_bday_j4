@@ -2,12 +2,12 @@
 <extension version="4.0" type="plugin" group="system" method="upgrade">
 	<name>plg_system_bday</name>
 	<author>ConseilGouz</author>
-	<creationDate>2023-10-12</creationDate>
+	<creationDate>2023-10-13</creationDate>
 	<copyright>(C)2023 ConseilGouz. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.2.3</version>
+	<version>2.2.4</version>
 	<description>PLG_SYSTEM_BDAY_XML_DESCRIPTION</description>
 	<files>
 		<folder plugin="bday">services</folder>
@@ -25,7 +25,7 @@
 		<filename>index.html</filename>
 	</media>
 	<scriptfile>script.php</scriptfile>
-	<changelogurl>https://www.conseilgouz.com/updates/plg_system_bday_changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_system_bday_j4/master/plg_system_bday_changelog.xml</changelogurl>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/plg_system_bday.ini</language>
 		<language tag="en-GB">en-GB/plg_system_bday.sys.ini</language>

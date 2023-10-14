@@ -152,7 +152,7 @@ class Bday extends CMSPlugin
 	// Display Popup 
 	//
 	private function popup($usersList) {
-		HTMLHelper::_('jquery.framework'); 
+
 		$document = Factory::getDocument();
 
 		$this->extdir = 'plg_'.$this->_type.'_'.$this->_name;

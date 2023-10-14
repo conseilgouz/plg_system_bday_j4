@@ -3,7 +3,7 @@
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
- * @version 2.2.4 
+ * @version 2.2.6 
  */
 var lefttime;
 var animate_effects = []; // animate 2 to animate 3
@@ -105,10 +105,6 @@ function go_popup() {
 		show_popup();
 	} 
 
-	// from https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
-	document.addEventListener("click", function(evt) {
-		show_button(); 
-	});
 	if (options_bday.multi) { // more than 1 user : let's scroll
 		goscroll();
 	}

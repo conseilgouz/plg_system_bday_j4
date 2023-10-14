@@ -3,7 +3,7 @@
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
- * @version 2.2.6 
+ * @version 2.2.7 
  */
 var lefttime;
 var animate_effects = []; // animate 2 to animate 3
@@ -85,7 +85,7 @@ function go_popup() {
 	if (close_popup) {
 		close_popup.addEventListener("click",function(e){ // close button
 			$cookieName = 'plg_bday';
-			setCookie($cookieName,"test",options_bday.duration);
+			setCookie($cookieName,"test",1);
 			hide_popup();
 			if (options_bday.title_button_popup == 1) { // show title button 
 				show_button();
@@ -95,7 +95,7 @@ function go_popup() {
 	if (sp_button) {
 		sp_button.addEventListener("click",function(e){ // title button
 		$cookieName = 'plg_bday';
-		setCookie($cookieName,"test",options_bday.duration);
+		setCookie($cookieName,"test",1);
 		hide_button();
 		show_popup();
 		e.stopPropagation();

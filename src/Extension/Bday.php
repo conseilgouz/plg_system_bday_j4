@@ -284,7 +284,7 @@ class Bday extends CMSPlugin
 		$document->addScriptOptions($this->extdir, 
 		array('test' => $this->params->get("popup_test",0),'width' => $width,'background' => $color, 'margin' => $margin, "opacity" => $opacity,
 		"pos" => $pos->vertical_popup,"speffect" => $this->params->get('sp-effect','fadeIn'),"scroll_width" => $scroll_width,"scroll_height" => $scroll_height,
-		"scroll_direction" => $direction, "scroll_speed" => $scroll_speed,"multi" => ($multi) ? 1 : 0));
+		"scroll_direction" => $direction, "scroll_speed" => $scroll_speed,"multi" => ($multi) ? 1 : 0, "title_button_popup" => $this->params->get('title_button_popup','0')));
 
 		return $html;
 	}
